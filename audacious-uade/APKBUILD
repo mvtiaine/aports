@@ -1,5 +1,5 @@
 pkgname=audacious-uade
-pkgver=0.12.3
+pkgver=0.12.4
 pkgrel=0
 pkgdesc="UADE plugin for Audacious music player"
 arch="all !s390x"
@@ -10,7 +10,8 @@ makedepends="audacious-dev autoconf automake libtool pkgconf"
 source="https://github.com/mvtiaine/$pkgname/releases/download/$pkgver/$pkgname-$pkgver.tar.bz2"
 
 build() {
-	./configure --prefix=/usr \
+	./configure --enable-plugin-audacious=yes --with-static-stdlibs=no \
+		--prefix=/usr \
 		--host="$CHOST" \
 		--build="$CBUILD"
 	make
@@ -25,5 +26,5 @@ package() {
 }
 
 sha512sums="
-06fbc2db491ddd3b413f0628524cd311b85b003def7e82e27d677346b5d4204f0a79a254f7f9c5e0f84691323ced447ca980d9a5606020bae9fb8df87a7ee417  audacious-uade-0.12.3.tar.bz2
+47a167c4b39af90b42a3a0a75b0179c6cbfe5986b67d7e12463cc791c042cd5d3535d73f00f4c20397df5e791c41cae8ddcdbc5825ec91a50194c6023c2014d5  audacious-uade-0.12.3.tar.bz2
 "
