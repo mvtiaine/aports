@@ -1,24 +1,28 @@
 pkgname=audacious-uade
-pkgver=0.12.4
+pkgver=0.13.0
 pkgrel=0
-pkgdesc="UADE plugin for Audacious music player"
+pkgdesc="UADE plugin for Audacious and DeaDBeeF"
 arch="all !s390x"
 url="https://github.com/mvtiaine/audacious-uade"
 license="GPL-2.0-or-later"
-depends="audacious"
-makedepends="audacious-dev autoconf automake libtool pkgconf"
+depends="audacious libopenmpt libxmp"
+makedepends="audacious-dev libopenmpt-dev libxmp-dev autoconf automake libtool pkgconf"
 source="https://github.com/mvtiaine/$pkgname/releases/download/$pkgver/$pkgname-$pkgver.tar.bz2"
 
 build() {
-	./configure --enable-plugin-audacious=yes --with-static-stdlibs=no \
+# NOTE: DeaDBeeF plugin is also built/installed if deadbeef and deadbeef-dev packages are installed
+	./configure \
+		--enable-players=all \
+		--enable-plugin-audacious=yes \
+		--with-static-stdlibs=no \
 		--prefix=/usr \
 		--host="$CHOST" \
 		--build="$CBUILD"
-	make
+	make -j
 }
 
 check() {
-	make check
+	make -j check
 }
 
 package() {
@@ -26,5 +30,5 @@ package() {
 }
 
 sha512sums="
-ce6da1ef6c840238d8f4f21118b638ddb2e52677456a879b01dfea829fa55eb02ecc1cb45463dbd5ed555130748044124e328a66392935bd0fdbf340c32b3d92  audacious-uade-0.12.4.tar.bz2
+8a25bb0b157999f239086681448a335e58345090dc8899e46186dbce7a9ee0a934ebf49f814fa3a776052717e62c8d64827699c5943ae923589e476beb3e99e6  audacious-uade-0.13.0.tar.bz2
 "
