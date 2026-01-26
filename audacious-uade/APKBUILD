@@ -1,5 +1,5 @@
 pkgname=audacious-uade
-pkgver=0.14.0
+pkgver=0.14.1
 pkgrel=0
 pkgdesc="UADE plugin for Audacious and DeaDBeeF"
 arch="all !s390x"
@@ -30,5 +30,5 @@ package() {
 }
 
 sha512sums="
-b396d04b9b1816fe370a38861b40ca99465ad74fa5a82a5d1138a01d77a9c3bed613baa82db4a4b20bcac1c770d8347a5908e9408e12fe45a397120e3c687c99  audacious-uade-0.14.0.tar.bz2
+b281d5ec1792294fb6330a8cef5677f9714d842806d07d3b88c9b7b1967cb027b764294d22888bf1f44ecca2d1786bad1251c9a32811ac4b182ab8cb639c867f  audacious-uade-0.14.1.tar.bz2
 "
